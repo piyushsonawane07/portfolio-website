@@ -1,0 +1,35 @@
+.navbar {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (min-width: 762px) {
+  .navbar:before {
+    content: "";
+    z-index: -4;
+    position: absolute;
+    top: -7%;
+    right: 0;
+    bottom: 0;
+    left: 0%;
+    /* background: linear-gradient(26deg, #45caff 41%, #f41bff 47%); */
+    background: linear-gradient(
+      45deg,
+      #e60073 0%,
+      #ff1493 16.66%,
+      #6200ff 33.33%,
+      #0400ff 50%,
+      #3700ff 66.66%,
+      #0077ff 83.33%,
+      #00a2ff 100%
+    );
+    transform: translate3d(0, 50px, 0) scale(0.49);
+    height: 150px;
+    filter: blur(220px);
+    opacity: 70%;
+    transition: all 0.3s;
+    border-radius: inherit;
+  }
+}
