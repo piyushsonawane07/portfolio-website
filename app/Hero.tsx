@@ -45,7 +45,7 @@ const Hero = () => {
         </Link>
       </div>
 
-      <div className="flex justify-center items-center mt-16 gap-4 md:flex">
+      <div className="flex justify-center items-center mt-12 gap-4 md:flex">
       <Link target="_balnk" href="https://github.com/piyushsonawane07" passHref>
         <FaGithub className="hover:text-gray-500 cursor-pointer" size={28} />
       </Link>
@@ -60,11 +60,11 @@ const Hero = () => {
       </Link>
     </div>
 
-      {/* <div className="flex justify-between items-center flex-col mt-16 md:flex">
+      <div className="hidden lg:flex justify-between items-center flex-col mt-8 md:flex">
         <div className="mouse-icon md:block hidden">
           <span className="mouse-wheel"></span>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
