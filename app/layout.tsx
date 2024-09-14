@@ -9,6 +9,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./footer/Footer";
 import Link from "next/link";
 import { GoArrowDown } from "react-icons/go";
+import AOSWrapper from "./components/AOSWrapper";
 
 const protest = localFont({
   src: "../public/fonts/ProtestRiot-Regular.ttf",
@@ -49,7 +50,7 @@ export default function RootLayout({
           <SpeedInsights />
           <NavBar />
 
-          <div>{children}</div>
+          <AOSWrapper>{children}</AOSWrapper>
           <div className=" md:px-[9rem] relative flex justify-center items-center">
             <Footer className="abolute bottom-0" />
           </div>

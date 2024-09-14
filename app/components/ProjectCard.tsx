@@ -23,7 +23,7 @@ const ProjectCard = ({
   isLive,
 }: Props) => {
   return (
-    <div className="relative w-full bg-black/60 border border-gray/20 backdrop-blur-lg rounded-md p-4 m-4 shadow-lg hover:shadow-2xl transition-all flex flex-col transform hover:scale-95 duration-300 ease-out">
+    <div className="relative w-full bg-black/60 border border-gray/20 backdrop-blur-lg rounded-md p-1 m-1 lg:p-4 lg:m-4 shadow-lg hover:shadow-2xl transition-all flex flex-col transform hover:scale-95 duration-300 ease-out">
       {/* Image Preview */}
       {/* <div className="h-36 w-full relative">
         <Image

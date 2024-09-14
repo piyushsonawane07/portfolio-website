@@ -59,14 +59,14 @@ const NavBar = () => {
       <div className="hidden md:flex space-x-8 py-2 items-center cursor-pointer">
         <div
           onClick={scrollToProjects}
-          className="text-gray-300 hover:text-blue-500 text-md font-normal"
+          className="text-gray-300 hover:text-blue-500 text-sm font-normal"
         >
           Projects
         </div>
 
         <div
           onClick={scrollToExperience}
-          className="text-gray-300 hover:text-blue-500 text-md font-normal"
+          className="text-gray-300 hover:text-blue-500 text-sm font-normal"
         >
           Experience
         </div>
