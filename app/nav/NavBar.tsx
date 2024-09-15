@@ -101,14 +101,14 @@ const NavBar = () => {
         <div className="absolute top-16 right-4 bg-black/60 backdrop-blur-lg rounded-lg shadow-lg p-4 flex flex-col space-y-4 md:hidden">
           <div
             className="text-gray-300 hover:text-blue-500 text-md font-normal"
-            onClick={() => {setIsMenuOpen(false); scrollToProjects} }
+            onClick={() => {setIsMenuOpen(false); scrollToProjects();} }
           >
             Projects
           </div>
 
           <div
             className="text-gray-300 hover:text-blue-500 text-md font-normal"
-            onClick={() => {setIsMenuOpen(false); scrollToExperience}}
+            onClick={() => {setIsMenuOpen(false); scrollToExperience();}}
           >
             Experience
           </div>

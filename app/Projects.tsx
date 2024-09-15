@@ -36,12 +36,13 @@ const IntroText = () => (
 
 const ShowAllLink = ({ showAll, onClick }: { showAll: boolean; onClick: () => void }) => (
   <div className="text-center mt-4">
+    <Link href="https://github.com/piyushsonawane07?tab=repositories">
     <button
-      onClick={onClick}
       className="text-gray-50  hover:text-blue-700 transition"
     >
-      {showAll ? "Show Less" : "Show More"}
+      {"Show More"}
     </button>
+    </Link>
   </div>
 );
 

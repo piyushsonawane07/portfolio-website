@@ -37,9 +37,10 @@ const Experience: React.FC = () => {
       title: "Software Engineer",
       company: "Bizaimca Software",
       tasks: [
-        "Developed and implemented user-friendly web applications using React and Node.js.",
-        "Collaborated with cross-functional teams to define, design, and ship new features.",
-        "Enhanced application performance by optimizing components and API interactions.",
+        "Designed and implemented key features across izdox platform and functionalities in the applications, which impacts improving efficiency & user experience.",
+        "Development and integration of critical features, including a Rules Engine, Sanction Screening, and a Validation Screen, optimizing trade finance operations by boosting efficiency, compliance, and operational accuracy.",
+        "Deployed LLM pipelines utilizing LangChain's RAG) and OpenAI API to enhance data retrieval and response accuracys.",
+        "Streamlined document labeling processes on the DIY Platform by implementing the Smart Labeling feature, resulting in a 75% reduction in labeling time and significantly improving operational efficiency."
       ],
     },
     {
@@ -47,8 +48,8 @@ const Experience: React.FC = () => {
       title: "Software Engineer Intern",
       company: "Bizaimca Software",
       tasks: [
-        "Assisted in developing front-end applications using Angular and Tailwind CSS.",
-        "Worked on integrating REST APIs with the front-end components.",
+        "Built robust data pipelines improving efficiency, and re-trained and developed various existing AI/ML models to achieve accuracy above 90 %.",
+        "Enhanced platform security by adding LDAP Authentication to the login process.",
         "Contributed to improving code quality through peer reviews and unit tests.",
       ],
     },
