@@ -27,18 +27,19 @@ import {
   SiDjango,
   SiFlask,
   SiRedis,
+  SiFastapi,
+  SiCelery,
 } from "react-icons/si";
 
 const Skills = () => {
   return (
     <div className="relative">
-      <div className="text-center mb-6">
-        <h2 className="font-bold text-sm font-jetbrains uppercase tracking-wider">
-          <span className="inline-block px-1 text-xl relative">
-            <span className="inline-block text-pink-600">Skills</span>
-          </span>
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl mb-3">
+          Skills
         </h2>
-        <p className="text-xl pt-4 font-extrabold">Technologies I work with</p>
+        <div className="w-20 h-1 bg-pink-600 mx-auto rounded-full mb-6"></div>
+        <p className="text-xl font-extrabold text-gray-700 dark:text-gray-300">Technologies I work with</p>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-[1rem] relative">
         <div className="flex p-2 rounded-sm cursor-pointer">
@@ -133,6 +134,16 @@ const Skills = () => {
         <div className="flex   p-2 rounded-sm cursor-pointer">
           <SiFlask className="text-gray-500" size={24} />
           <span className="ms-2 hidden md:inline">Flask</span>
+        </div>
+
+        <div className="flex   p-2 rounded-sm cursor-pointer">
+          <SiFastapi className="text-gray-500" size={24} />
+          <span className="ms-2 hidden md:inline">FastAPI</span>
+        </div>
+
+        <div className="flex   p-2 rounded-sm cursor-pointer">
+          <SiCelery className="text-gray-500" size={24} />
+          <span className="ms-2 hidden md:inline">Celery</span>
         </div>
 
         <div className="flex   p-2 rounded-sm cursor-pointer">

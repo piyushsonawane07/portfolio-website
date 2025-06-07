@@ -17,6 +17,24 @@ const {
 
 export const projects = [
   {
+    title: "Doc Chat",
+    description: "Built a scalable PDF Q&A system enabling users to interact with documents using natural language, leveraging LangChain, OpenAI embeddings, and Chroma for fast and accurate context retrieval",
+    github: "https://github.com/piyushsonawane07/doc-chat",
+    live: "",
+    stack: "Python + FastAPI + Celery + OpenAI + Chroma + LangChain",
+    isPrivate: false,
+    isLive: false,
+  },
+  {
+    title: "Netflix GPT",
+    description: "Netflix Clone built using React JS and OpenAI API.",
+    github: "https://github.com/piyushsonawane07/Netflix-GPT",
+    live:"https://netflix-gpt-eta-lyart.vercel.app/",
+    stack: "React JS + Javascript + OpenAI",
+    isPrivate: false,
+    isLive: true,
+  }, 
+  {
     title: "Secure Pass",
     description: "An Android App made in Kotlin to store the user's password.",
     github: "https://github.com/piyushsonawane07/Password-Manager-App",
@@ -35,33 +53,24 @@ export const projects = [
     stack: "Android + Java",
     isPrivate: false,
   },
-  // {
-  //   title: "Notes Web",
-  //   description: "A MERN Stack Application for taking notes.",
-  //   github: "https://github.com/piyushsonawane07/Notes-Web",
-  //   live: "",
-  //   stack: "React JS + Javascript + NodeJS + MongoDB ",
-  //   isPrivate: false,
-  //   isLive: false,
-  // },
-  // {
-  //   title: "Open Chat",
-  //   description: "Custom a11y Compliant Datepicker.",
-  //   github: "https://github.com/piyushsonawane07/open-chat",
-  //   live: "https://open-chat-cd9cd.web.app/",
-  //   stack: "React JS + Javascript + Firebase",
-  //   isPrivate: false,
-  //   isLive: true,
-  // },
   {
-    title: "Netflix GPT",
-    description: "",
-    github: "https://github.com/piyushsonawane07/Netflix-GPT",
-    live:"https://netflix-clone-bcd36.web.app/",
-    stack: "React JS + Javascript + OpenAI",
+    title: "Notes Web",
+    description: "A MERN Stack Application for taking notes.",
+    github: "https://github.com/piyushsonawane07/Notes-Web",
+    live: "",
+    stack: "React JS + Javascript + NodeJS + MongoDB ",
+    isPrivate: false,
+    isLive: false,
+  },
+  {
+    title: "Open Chat",
+    description: "Custom a11y Compliant Datepicker.",
+    github: "https://github.com/piyushsonawane07/open-chat",
+    live: "https://open-chat-cd9cd.web.app/",
+    stack: "React JS + Javascript + Firebase",
     isPrivate: false,
     isLive: true,
-  }, 
+  },
   // {
   //   title: "Text Utils",
   //   description: "Utility functions to manipulate text in JavaScript.",
@@ -85,7 +94,7 @@ export const projects = [
 export const socials = [
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/piyush-sonawane-1302/",
+    url: "https://www.linkedin.com/in/piyush-sonawane-ps/",
     icon: linkedin,
   },
   {
@@ -100,7 +109,7 @@ export const socials = [
   },
   {
     name: "Email",
-    url: "#",
+    url: "mailto:piyushsonawane2023@gmail.com",
     icon: "https://cdn-icons-png.flaticon.com/512/3621/3621435.png",
   },
 ];

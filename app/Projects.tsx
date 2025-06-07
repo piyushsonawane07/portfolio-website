@@ -21,18 +21,18 @@ const Projects = () => {
 };
 
 const Heading = () => (
-  <h2 className="text-center font-bold text-sm font-jetbrains uppercase tracking-wider mb-6">
-    <span className="inline-block px-1 text-lg relative">
-      <span className="inline-block text-green-500">projects</span>
-    </span>
-  </h2>
+  <div className="text-center mb-12">
+    <h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl mb-3">
+      Projects
+    </h2>
+    <div className="w-20 h-1 bg-green-500 mx-auto rounded-full mb-6"></div>
+    <p className="text-xl font-extrabold text-gray-700 dark:text-gray-300">
+      Things I&apos;ve built
+    </p>
+  </div>
 );
 
-const IntroText = () => (
-  <p className="text-center text-xl sm:text-2xl mb-6 font-extrabold">
-    Things I&apos;ve built{" "}
-  </p>
-);
+const IntroText = () => null;
 
 const ShowAllLink = ({ showAll, onClick }: { showAll: boolean; onClick: () => void }) => (
   <div className="text-center mt-4">
