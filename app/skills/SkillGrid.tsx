@@ -33,7 +33,7 @@ import {
 
 const Skills = () => {
   return (
-    <div className="relative">
+    <div id="skills" className="relative">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl mb-3">
           Skills

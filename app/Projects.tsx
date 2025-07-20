@@ -13,7 +13,7 @@ const Projects = () => {
   const displayedProjects = showAll ? projects : projects.slice(0, 6);
 
   return (
-    <div className="relative">
+    <div id="projects" className="relative">
       <Heading />
       <IntroText />
       <ProjectGrid projectList={displayedProjects} />

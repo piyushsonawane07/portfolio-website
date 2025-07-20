@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 sm:px-8 py-12">
+    <div id="about" className="w-full max-w-5xl mx-auto px-4 sm:px-8 py-12">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl mb-3">
           About Me
