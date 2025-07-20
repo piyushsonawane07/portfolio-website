@@ -7,7 +7,7 @@ export const CustomButton = () => {
         className="animate-rotate absolute inset-0 h-full w-full rounded-full bg-[conic-gradient(#a886f7_20deg,transparent_120deg)]"
       ></div>
       <div className="relative z-20 flex w-full rounded bg-black py-[6px] text-sm px-3">
-        <span>Resume</span>
+        <span className="text-gray-50">Resume</span>
       </div>
     </div>
   </div>
