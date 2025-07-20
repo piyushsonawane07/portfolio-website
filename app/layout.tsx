@@ -39,12 +39,13 @@ export default function RootLayout({
       <body
         className={`${poppins.className} ${protest.variable} ${canela.variable}`}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <NextTopLoader
-            color={
-              "linear-gradient(26deg,#c5f9d7 0%,#f7d486 16.66%, #f27a7d 33.33%,#f9b16e 50%)"
-            }
-          />
+        <ThemeProvider 
+          attribute="class" 
+          defaultTheme="system" 
+          enableSystem
+          disableTransitionOnChange
+        >
+         
 
           <Analytics />
           <SpeedInsights />

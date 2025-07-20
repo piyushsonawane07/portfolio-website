@@ -1,121 +1,221 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import styles from "./navbar.module.css";
+'use client';
+
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/Ps.png";
+import { cn } from "@/utils/cn";
+import { ThemeToggle } from "@/components/theme-toggle";
+import styles from "./navbar.module.css";
 
-const NavBar = () => {
-  const [isSticky, setIsSticky] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+export const NavbarMenu = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isBeforeAbout, setIsBeforeAbout] = useState(true);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        const rect = aboutSection.getBoundingClientRect();
+        setIsBeforeAbout(rect.top > 0);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: Event) => {
+      const target = event.target as Node;
+      if (isOpen && 
+          menuRef.current && 
+          buttonRef.current && 
+          !menuRef.current.contains(target) && 
+          !buttonRef.current.contains(target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  const menuItems = [
+    { name: "About", link: "#about" },
+    { name: "Skills", link: "#skills" },
+    { name: "Projects", link: "#projects" },
+    { name: "Experience", link: "#experience" },
+    { name: "Contact", link: "#contact" },
+  ];
+
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsOpen(!isOpen);
   };
 
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById("projects-section");
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const scrollToExperience = () => {
-    const experienceSection = document.getElementById("experience-section");
-    if (experienceSection) {
-      experienceSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const MenuItem = ({ item, mobile = false }: { item: { name: string; link: string }, mobile?: boolean }) => (
+    <Link
+      key={item.link}
+      href={item.link}
+      onClick={() => mobile && setIsOpen(false)}
+      className={cn(
+        "relative flex items-center transition-colors duration-200",
+        mobile 
+          ? isBeforeAbout
+            ? "text-lg py-3 text-white/90 hover:text-white"
+            : "text-lg py-3 text-neutral-800 dark:text-neutral-200 hover:text-black dark:hover:text-white"
+          : isBeforeAbout
+            ? "text-sm px-3 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10"
+            : "text-sm px-3 py-2 rounded-full text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-white/20 dark:hover:bg-white/10",
+        "font-medium"
+      )}
+    >
+      {item.name}
+    </Link>
+  );
 
   return (
-    <div
-      className={`${styles.navbar} ${
-        isSticky
-          ? "sticky top-0 bg-black/60 backdrop-blur-lg shadow-lg z-50 transition-all duration-300"
-          : "relative"
-      } flex justify-between items-center py-3 md:py-4 px-[1.5rem] sm:px-[3rem] lg:px-[10rem]`}
-    >
-      {/* Logo */}
-      <Link href={"/"} className="font-extrabold text-2xl ml-1">
-        <Image src={logo} alt="logo" width={30} height={30} />
-      </Link>
-
-      {/* Menu for larger screens */}
-      <div className="hidden md:flex space-x-8 py-2 items-center cursor-pointer">
-        <div
-          onClick={scrollToProjects}
-          className="text-gray-300 hover:text-blue-500 text-sm font-normal"
+    <div className={cn(
+      "fixed top-0 inset-x-0 z-50 transition-all duration-300",
+      isBeforeAbout 
+        ? "bg-transparent" 
+        : "bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-sm"
+    )}>
+      {isBeforeAbout && <div className={styles['gradient-bg']} />}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: -100 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex items-center justify-center py-4 w-full"
         >
-          Projects
-        </div>
+          <div className={cn(
+            "flex items-center rounded-full p-1.5 px-4 backdrop-blur-md shadow-lg transition-colors duration-300",
+            isBeforeAbout
+              ? "bg-[#2B1B4D]/30 border border-white/[0.1]"
+              : "bg-white/30 dark:bg-black/30 border border-white/[0.3] dark:border-white/[0.1]"
+          )}>
+            {/* Logo */}
+            <Link 
+              href={"/"} 
+              className={cn(
+                "flex items-center justify-center p-1.5 rounded-full transition-all duration-300 mr-2",
+                isBeforeAbout 
+                  ? "bg-white/10 hover:bg-white/20"
+                  : "bg-white/80 dark:bg-black/60 hover:bg-white/90 dark:hover:bg-black/70"
+              )}
+            >
+              <div className="w-7 h-7 flex items-center justify-center">
+                <Image 
+                  src={logo} 
+                  alt="logo" 
+                  width={20} 
+                  height={20}
+                  className="dark:invert-0 invert"
+                />
+              </div>
+            </Link>
 
-        <div
-          onClick={scrollToExperience}
-          className="text-gray-300 hover:text-blue-500 text-sm font-normal"
-        >
-          Experience
-        </div>
-      </div>
-
-      {/* Menu button for small screens */}
-      <div className="md:hidden flex items-center">
-        <button
-          onClick={toggleMenu}
-          className="text-gray-300 hover:text-blue-500 focus:outline-none"
-        >
-          {/* Hamburger Icon */}
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </div>
-
-      {/* Dropdown menu for small screens */}
-      {isMenuOpen && (
-        <div className="absolute top-16 right-4 bg-black/60 backdrop-blur-lg rounded-lg shadow-lg p-4 flex flex-col space-y-4 md:hidden">
-          <div
-            className="text-gray-300 hover:text-blue-500 text-md font-normal"
-            onClick={() => {setIsMenuOpen(false); scrollToProjects();} }
-          >
-            Projects
+            {/* Navigation Items */}
+            <div className="hidden md:flex items-center">
+              {menuItems.map((item) => (
+                <MenuItem key={item.name} item={item} />
+              ))}
+              <div className={cn(
+                "pl-2 border-l h-6 flex items-center ml-1",
+                isBeforeAbout
+                  ? "border-white/10"
+                  : "border-neutral-300 dark:border-neutral-700"
+              )}>
+                <ThemeToggle />
+              </div>
+            </div>
           </div>
 
-          <div
-            className="text-gray-300 hover:text-blue-500 text-md font-normal"
-            onClick={() => {setIsMenuOpen(false); scrollToExperience();}}
+          {/* Mobile Menu Button */}
+          <button
+            ref={buttonRef}
+            onClick={toggleMenu}
+            className={cn(
+              "md:hidden p-2 rounded-lg transition-colors",
+              isBeforeAbout
+                ? "hover:bg-white/10"
+                : "hover:bg-white/20 dark:hover:bg-white/10"
+            )}
+            aria-label="Toggle menu"
           >
-            Experience
-          </div>
-        </div>
-      )}
+            <div className="w-6 h-5 relative flex flex-col justify-between">
+              <span className={cn(
+                "w-full h-0.5 transition-transform duration-300",
+                isBeforeAbout ? "bg-white" : "bg-neutral-900 dark:bg-white",
+                isOpen ? 'rotate-45 translate-y-2' : ''
+              )} />
+              <span className={cn(
+                "w-full h-0.5 transition-opacity duration-300",
+                isBeforeAbout ? "bg-white" : "bg-neutral-900 dark:bg-white",
+                isOpen ? 'opacity-0' : ''
+              )} />
+              <span className={cn(
+                "w-full h-0.5 transition-transform duration-300",
+                isBeforeAbout ? "bg-white" : "bg-neutral-900 dark:bg-white",
+                isOpen ? '-rotate-45 -translate-y-2' : ''
+              )} />
+            </div>
+          </button>
+        </motion.div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              ref={menuRef}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className={cn(
+                "md:hidden backdrop-blur-lg shadow-lg transition-colors duration-300 overflow-hidden",
+                isBeforeAbout
+                  ? "bg-[#2B1B4D]/80 border-t border-white/[0.1]"
+                  : "bg-white/80 dark:bg-black/80 border-t border-neutral-200/50 dark:border-neutral-800/50"
+              )}
+            >
+              <div className="flex flex-col py-4 px-4 space-y-2">
+                {menuItems.map((item) => (
+                  <MenuItem key={item.name} item={item} mobile />
+                ))}
+                <div className={cn(
+                  "pt-2 mt-2 border-t flex items-center",
+                  isBeforeAbout
+                    ? "border-white/10"
+                    : "border-neutral-200 dark:border-neutral-700"
+                )}>
+                  <span className={cn(
+                    "text-sm mr-3",
+                    isBeforeAbout
+                      ? "text-white/70"
+                      : "text-neutral-600 dark:text-neutral-400"
+                  )}>
+                    Toggle theme
+                  </span>
+                  <ThemeToggle />
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
-};
+}
 
-export default NavBar;
+export default NavbarMenu;

@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { projects } from "./data/data";
 import Link from "next/link";
 import ProjectGrid from "./components/ProjectGrid";
+import { ArrowRight, ChevronRightIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
@@ -37,11 +39,11 @@ const IntroText = () => null;
 const ShowAllLink = ({ showAll, onClick }: { showAll: boolean; onClick: () => void }) => (
   <div className="text-center mt-4">
     <Link href="https://github.com/piyushsonawane07?tab=repositories">
-    <button
-      className="text-gray-50  hover:text-blue-700 transition"
+    <Button
+      className="text-gray-50 hover:bg-gray-900 transition bg-black"
     >
-      {"Show More"}
-    </button>
+      <span className="flex items-center gap-2">View More Projects <ArrowRight/></span>
+    </Button>
     </Link>
   </div>
 );

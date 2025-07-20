@@ -18,7 +18,7 @@ const Hero = () => {
       >
         <div className="relative mx-[2rem] md:mx-[3rem] p-10 lg:mx-[12rem] w-full flex flex-col items-center justify-center">
           <div className="flex justify-center">
-            <Image src={memoji} alt="memoji" className="w-52 md:w-[220px]" />
+            <Image src={memoji} alt="memoji" className="w-52 mt-20 pt-20 md:w-[220px]" />
           </div>
 
           <h1 className="text-2xl font-bold md:text-4xl sm:text-xl xl:text-[2.5rem] text-left sm:text-center leading-tight md:leading-tight">
@@ -30,11 +30,16 @@ const Hero = () => {
             <span className="text-2xl md:italic md:text-3xl xl:text-[2.5rem] mb-3 sm:mb-0 text-center sm:text-left font-extrabold dark:text-zinc-400">
               Software Engineer.
             </span>
+            <br />
+            <span className="text-base italic">
+            {/* Transforming complex logic into simple, modular solutions — built with precision and purpose. */}
+            Software engineering with a builder&apos;s mindset.
+            </span>
           </h1>
         </div>
       </div>
 
-      <div>
+      <div className="mt-20">
         <Link
           target="_blank"
           href={

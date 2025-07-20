@@ -24,17 +24,7 @@ export default function Home() {
       >
         <Projects />
       </div>
-
-      {/* <div className="bg-transparent relative border-t border-b bg-[#f9fafb] px-[1.2rem] gap-y-11 py-[2rem] md:py-[2rem] lg:px-[9rem] my-[6rem] flex flex-col gap-8">
-        <div
-          className="flex flex-col relative  p-4  md:flex-row justify-between items-center"
-         
-        >
-          <About />
-          <List />
-        </div>
-      </div> */}
-
+      
       <div className="px-[1rem] md:px-[9rem] my-[8rem] ">
         <RevealLinks />
       </div>
