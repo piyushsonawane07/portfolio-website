@@ -5,7 +5,7 @@ import { socials } from "../data/data";
 
 export const RevealLinks = () => {
   return (
-    <section className="flex flex-wrap md:justify-center gap-x-20 gap-y-2 px-8 text-white">
+    <section className="flex flex-wrap md:justify-center gap-x-20 gap-y-2 px-8 text-neutral-900 dark:text-white">
       {socials.map((s, index) => (
         <FlipLink key={index} href={s.url}>
           {s.name}
@@ -29,7 +29,7 @@ const FlipLink = ({ children, href }: Props) => {
       initial="initial"
       whileHover="hovered"
       href={href}
-      className="relative block overflow-hidden whitespace-nowrap text-4xl font-black uppercase sm:text-4xl md:text-8xl lg:text-5xl"
+      className="relative block overflow-hidden whitespace-nowrap text-4xl font-black uppercase sm:text-4xl md:text-8xl lg:text-5xl text-neutral-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
       style={{
         lineHeight: 0.75,
       }}

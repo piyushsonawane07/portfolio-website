@@ -23,7 +23,7 @@ const ProjectCard = ({
   isLive,
 }: Props) => {
   return (
-    <div className="relative w-full bg-black/60 border border-gray/20 backdrop-blur-lg rounded-md p-1 m-1 lg:p-4 lg:m-4 shadow-lg hover:shadow-2xl transition-all flex flex-col transform hover:scale-95 duration-300 ease-out">
+    <div className="relative w-full bg-white/90 dark:bg-black/60 border border-gray-200 dark:border-gray-600/20 backdrop-blur-lg rounded-md p-1 m-1 lg:p-4 lg:m-4 shadow-lg hover:shadow-2xl transition-all flex flex-col transform hover:scale-95 duration-300 ease-out">
       {/* Image Preview */}
       {/* <div className="h-36 w-full relative">
         <Image
@@ -38,11 +38,11 @@ const ProjectCard = ({
       {/* Card Content */}
       <div className="flex flex-col p-4 flex-1 justify-between">
         <div className="project_details">
-          <h3 className="text-lg font-semibold mb-2 text-white">{title}</h3>
-          <small className="block text-gray-300 text-xs uppercase tracking-wide mb-3">
+          <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{title}</h3>
+          <small className="block text-gray-600 dark:text-gray-300 text-xs uppercase tracking-wide mb-3">
             {stack}
           </small>
-          <p className="text-sm text-gray-200 font-light leading-relaxed mb-3 line-clamp-3 h-16">
+          <p className="text-sm text-gray-700 dark:text-gray-200 font-light leading-relaxed mb-3 line-clamp-3 h-16">
             {description}
           </p>
         </div>
@@ -55,7 +55,7 @@ const ProjectCard = ({
                 href={live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-gray-300"
+                className="flex items-center text-gray-600 dark:text-gray-300"
               >
                 <Eye size={16} className="mr-1 text-sm" /> Live
               </a>
@@ -68,7 +68,7 @@ const ProjectCard = ({
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-gray-300"
+                className="flex items-center text-gray-600 dark:text-gray-300"
               >
                 <GitMerge size={16} className="mr-1 text-sm" /> Code
               </a>

@@ -37,13 +37,19 @@ const Heading = () => (
 const IntroText = () => null;
 
 const ShowAllLink = ({ showAll, onClick }: { showAll: boolean; onClick: () => void }) => (
-  <div className="text-center mt-4">
+  <div className="text-center mt-8">
     <Link href="https://github.com/piyushsonawane07?tab=repositories">
-    <Button
-      className="text-gray-50 hover:bg-gray-900 transition bg-black"
-    >
-      <span className="flex items-center gap-2">View More Projects <ArrowRight/></span>
-    </Button>
+      <div className="inline-block relative group">
+        <div className="absolute -inset-0.5 bg-gradient-to-r  rounded-full blur opacity-75 group-hover:opacity-100 transition duration-200 group-hover:duration-500"></div>
+        <button 
+          className="relative px-8 py-3.5 bg-white/90 dark:bg-black/50 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full text-gray-900 dark:text-white font-medium transition-all duration-200 group-hover:bg-white dark:group-hover:bg-black/60 shadow-md hover:shadow-lg"
+        >
+          <div className="relative flex items-center justify-center space-x-2">
+            <span className="transition-transform duration-300 group-hover:-translate-x-2">View More Projects</span>
+            <ArrowRight className="w-5 h-5 transition-transform duration-300 transform translate-x-0 group-hover:translate-x-2" />
+          </div>
+        </button>
+      </div>
     </Link>
   </div>
 );

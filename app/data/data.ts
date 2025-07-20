@@ -26,6 +26,15 @@ export const projects = [
     isLive: false,
   },
   {
+    title: "Embed Org",
+    description: "A full-stack, containerized platform enabling document management, vector embeddings generation, and semantic search for organizations.",
+    github: "https://github.com/VajraM-dev/embedorg",
+    live: "",
+    stack: "Next JS + Typescript + Python + Postgresql",
+    isPrivate: false, 
+    isLive: false,
+  },
+  {
     title: "Netflix GPT",
     description: "Netflix Clone built using React JS and OpenAI API.",
     github: "https://github.com/piyushsonawane07/Netflix-GPT",
@@ -52,15 +61,6 @@ export const projects = [
     isLive: false,
     stack: "Android + Java",
     isPrivate: false,
-  },
-  {
-    title: "Notes Web",
-    description: "A MERN Stack Application for taking notes.",
-    github: "https://github.com/piyushsonawane07/Notes-Web",
-    live: "",
-    stack: "React JS + Javascript + NodeJS + MongoDB ",
-    isPrivate: false,
-    isLive: false,
   },
   {
     title: "Open Chat",

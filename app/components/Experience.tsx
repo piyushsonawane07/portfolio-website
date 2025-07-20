@@ -54,7 +54,7 @@ export default function ExperienceSection() {
       description: [
         "Contributed to the development of document processing features.",
         "Assisted in building and maintaining backend services.",
-        "Participated in code reviews and team discussions.",
+        "Integrated LDAP Authentication.",
       ],
     },
     // Add more experiences as needed
@@ -72,6 +72,7 @@ export default function ExperienceSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-3 sm:mb-4">
             Work Experience
           </h2>
+          <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full mb-6"></div>
           <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-8">
             My professional journey
           </p>
@@ -103,27 +104,28 @@ export default function ExperienceSection() {
                       : "sm:left-[51%] sm:pl-4"
                   )}
                 >
-                  {exp.date}
+                  {/* {exp.date} */}
                 </motion.div>
 
                 <div className="hidden sm:block absolute left-1/2 -translate-x-1/2 -translate-y-[0.5px] top-0">
                   <div className="relative">
-                    <div className="absolute inset-0 -m-[1px] " />
-                    
+                    <div className="absolute inset-0 -m-[1px]" />
                     <motion.div
-                      initial={{ scale: 0, rotate: 0 }}
+                      initial={{ scale: 0, opacity: 0 }}
                       whileInView={{
                         scale: 1,
-                        rotate: 360,
+                        opacity: 1,
                         transition: {
-                          scale: { duration: 0.5 },
-                          rotate: { duration: 1, ease: "easeOut" },
-                        },
+                          duration: 0.5,
+                          type: "spring",
+                          stiffness: 200,
+                          damping: 15
+                        }
                       }}
                       viewport={{ once: true }}
-                      className="relative w-7 h-7 flex items-center justify-center"
+                      className="relative w-5 h-5 flex items-center justify-center"
                     >
-                     
+                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full ring-4 ring-blue-500/20"></div>
                     </motion.div>
                   </div>
                 </div>
@@ -139,31 +141,50 @@ export default function ExperienceSection() {
                     bounce: 0.4,
                   }}
                   className={cn(
-                    "w-full sm:w-[calc(50%-3rem)]",
+                    "w-full sm:w-[calc(50%-3rem)] group",
                     "sm:mt-12",
                     idx % 2 === 0 ? "sm:ml-auto" : "sm:mr-auto"
                   )}
                 >
-                  <CardHoverEffect>
-                    <div className="p-4 sm:p-6">
-                      <h3 className="text-base sm:text-lg font-semibold text-neutral-900 dark:text-white mb-2">
-                        {exp.title}
-                      </h3>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-3 sm:mb-4">
-                        <span className="font-medium">{exp.company}</span>
-                        <span className="hidden sm:inline">•</span>
-                        <span>{exp.location}</span>
+                  <div className="relative">
+                    {/* Glow effect */}
+                    <div className="absolute -inset-0.5 rounded-xl blur opacity-0 group-hover:opacity-75 transition duration-200 group-hover:duration-500"></div>
+                    
+                    {/* Glass card */}
+                    <div className="relative bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-6 shadow-lg dark:shadow-2xl transition-all duration-300 hover:bg-white hover:shadow-xl dark:hover:bg-white/10 dark:hover:border-white/20">
+                      <div className="flex items-start justify-between mb-4">
+                        <div>
+                          <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                            {exp.title}
+                          </h3>
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-sm text-gray-600 dark:text-neutral-400 mt-1">
+                            <span className="font-medium text-gray-800 dark:text-gray-200">{exp.company}</span>
+                            <span className="hidden sm:inline text-gray-400 dark:text-neutral-500">•</span>
+                            <span className="text-gray-600 dark:text-neutral-400">{exp.location}</span>
+                          </div>
+                        </div>
+                        <div className="bg-blue-100 dark:bg-blue-500/10 px-3 py-1 rounded-full text-xs font-medium text-blue-700 dark:text-blue-400">
+                          {exp.date}
+                        </div>
                       </div>
-                      <ul className="mt-2 space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+                      
+                      <ul className="space-y-3 mt-4">
                         {exp.description.map((item, i) => (
-                          <li key={i} className="flex items-start">
-                            <span className="text-blue-500 mr-2">•</span>
-                            <span>{item}</span>
+                          <li key={i} className="flex items-start group-hover:translate-x-1 transition-transform duration-200">
+                            <span className="text-blue-500 dark:text-blue-400 mr-3 mt-1">
+                              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                              </svg>
+                            </span>
+                            <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">{item}</span>
                           </li>
                         ))}
                       </ul>
+                      
+                      {/* Bottom gradient accent */}
+                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r rounded-b-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  </CardHoverEffect>
+                  </div>
                 </motion.div>
               </div>
             ))}
