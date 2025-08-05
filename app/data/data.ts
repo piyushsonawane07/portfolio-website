@@ -35,6 +35,15 @@ export const projects = [
     isLive: false,
   },
   {
+    title: "Notify",
+    description: "Notify is a web application that allows users to post, pin, and manage important messages or notifications on a collaborative pinboard.",
+    github: "https://github.com/piyushsonawane07/Notify",
+    live: "",
+    stack: "Next JS + Typescript + Python + FastAPI",
+    isPrivate: false, 
+    isLive: false,
+  },
+  {
     title: "Netflix GPT",
     description: "Netflix Clone built using React JS and OpenAI API.",
     github: "https://github.com/piyushsonawane07/Netflix-GPT",
