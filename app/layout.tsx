@@ -35,15 +35,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${poppins.className} ${protest.variable} ${canela.variable}`}
+        className={`${poppins.className} ${protest.variable} ${canela.variable} bg-background text-foreground min-h-screen`}
       >
         <ThemeProvider 
           attribute="class" 
-          defaultTheme="system" 
-          enableSystem
-          disableTransitionOnChange
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange={false}
         >
          
 

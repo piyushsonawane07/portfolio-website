@@ -1,5 +1,6 @@
 "use client";
 
+import { RainbowButton } from "@/components/magicui/rainbow-button";
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 import Link from "next/link";
@@ -32,16 +33,19 @@ const Contact = () => {
               href="mailto:piyushsonawane2023@gmail.com"
               className="relative flex items-center px-8 py-4  font-medium rounded-lg transition-all duration-200 group-hover:bg-opacity-90 dark:group-hover:bg-opacity-90"
             >
-              <Mail className="w-5 h-5 mr-3 text-blue-500 dark:text-blue-400" />
-              <span className="font-semibold">piyushsonawane2023@gmail.com</span>
-              <svg 
+             
+              <RainbowButton>piyushsonawane2023@gmail.com
+              {/* <Mail className="w-5 h-5 mr-3 text-blue-500 dark:text-blue-400" /> */}
+              {/* <svg 
                 className="w-4 h-4 ml-3 transform group-hover:translate-x-1 transition-transform duration-200" 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+              </svg> */}
+              </RainbowButton>
+              
             </Link>
           </motion.div>
         </motion.div>

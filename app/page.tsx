@@ -13,9 +13,9 @@ export default function Home() {
       <div id="top" className="px-[0rem] xl:px-[9rem] mt-[1.5rem] md:mt-0">
         <Hero />
       </div>
-      <div className="px-[1.5rem] lg:px-[9rem] my-[6rem] mt-[7rem]">
+      {/* <div className="px-[1.5rem] lg:px-[9rem] my-[6rem] mt-[7rem]">
         <About />
-      </div>
+      </div> */}
       <div className="px-[1.5rem] lg:px-[9rem] my-[6rem] mt-[7rem]">
         <Skills />
       </div>
