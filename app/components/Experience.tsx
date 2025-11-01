@@ -14,6 +14,7 @@ interface Experience {
   date: string;
   description: string[];
   icon?: React.ComponentType<{ className?: string }>;
+  logo?: string; // optional path to a company logo in /public/logos
 }
 
 const experienceIcons = [FaBriefcase, FaBriefcase, FaBriefcase];
@@ -34,10 +35,24 @@ export default function ExperienceSection() {
 
   const experiences: Experience[] = [
     {
+      title: "Consultant Developer",
+      company: "Thoughtworks",
+      location: "Banglore, India",
+      date: "Oct 2025 - Present",
+      logo: "/logos/tw.jpg",
+      description: [
+        "Collaborating with cross-functional teams to deliver high-quality software solutions.",
+        "Implementing best practices in software development and architecture.",
+        "Engaging in code reviews and mentoring junior developers.",
+        "Utilizing Agile methodologies to ensure timely delivery of projects.",
+      ],
+    },
+    {
       title: "Software Engineer",
       company: "BizAmica Software",
       location: "Pune, India",
-      date: "Jun 2023 - Present",
+      date: "Jun 2023 - Oct 2025",
+      logo: "/logos/bizamica.svg",
       description: [
         "Designed and implemented key features across izdox platform, improving efficiency and user experience.",
         "Developed critical features including Rules Engine, Sanction Screening, and Validation Screen.",
@@ -51,6 +66,7 @@ export default function ExperienceSection() {
       company: "BizAmica Software",
       location: "Pune, India",
       date: "Jun 2022 - May 2023",
+      logo: "/logos/bizamica.svg",
       description: [
         "Contributed to the development of document processing features.",
         "Assisted in building and maintaining backend services.",
@@ -149,25 +165,40 @@ export default function ExperienceSection() {
                   <div className="relative">
                     {/* Glow effect */}
                     <div className="absolute -inset-0.5 rounded-xl blur opacity-0 group-hover:opacity-75 transition duration-200 group-hover:duration-500"></div>
-                    
+
                     {/* Glass card */}
                     <div className="relative bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-6 shadow-lg dark:shadow-2xl transition-all duration-300 hover:bg-white hover:shadow-xl dark:hover:bg-white/10 dark:hover:border-white/20">
                       <div className="flex items-start justify-between mb-4">
-                        <div>
-                          <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
-                            {exp.title}
-                          </h3>
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-sm text-gray-600 dark:text-neutral-400 mt-1">
-                            <span className="font-medium text-gray-800 dark:text-gray-200">{exp.company}</span>
-                            <span className="hidden sm:inline text-gray-400 dark:text-neutral-500">•</span>
-                            <span className="text-gray-600 dark:text-neutral-400">{exp.location}</span>
+                        <div className="flex items-center gap-4">
+                          {exp.logo && (
+                            <img
+                              src={exp.logo}
+                              alt={`${exp.company} logo`}
+                              className="w-10 h-10 object-contain rounded-md bg-white/60 dark:bg-black/10 p-1"
+                              loading="lazy"
+                            />
+                          )}
+                          <div>
+                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                              {exp.title}
+                            </h3>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-sm text-gray-600 dark:text-neutral-400 mt-1">
+                              <span className="font-medium text-gray-800 dark:text-gray-200">{exp.company}</span>
+                              <span className="hidden sm:inline text-gray-400 dark:text-neutral-500">•</span>
+                              <span className="text-gray-600 dark:text-neutral-400">{exp.location}</span>
+                            </div>
                           </div>
                         </div>
-                        <div className="bg-blue-100 dark:bg-blue-500/10 px-3 py-1 rounded-full text-xs font-medium text-blue-700 dark:text-blue-400">
+                        <div
+                          className={`px-3 py-1 rounded-full text-xs font-medium ${idx === 0
+                              ? "bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400"
+                              : "bg-blue-100 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400"
+                            }`}
+                        >
                           {exp.date}
                         </div>
                       </div>
-                      
+
                       <ul className="space-y-3 mt-4">
                         {exp.description.map((item, i) => (
                           <li key={i} className="flex items-start group-hover:translate-x-1 transition-transform duration-200">
@@ -180,7 +211,7 @@ export default function ExperienceSection() {
                           </li>
                         ))}
                       </ul>
-                      
+
                       {/* Bottom gradient accent */}
                       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r rounded-b-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
